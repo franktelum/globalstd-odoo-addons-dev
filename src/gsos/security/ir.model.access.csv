@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_gsos_supplier_user,gsos.supplier.user,model_gsos_supplier,gsos.group_gsos_user,1,0,0,0
+access_gsos_supplier_manager,gsos.supplier.manager,model_gsos_supplier,gsos.group_gsos_manager,1,1,1,1

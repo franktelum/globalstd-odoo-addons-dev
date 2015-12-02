@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+   <data>
+      <record id="action_gsos_suppliers" model="ir.actions.act_window">
+         <field name="name">Suppliers</field>
+         <field name="type">ir.actions.act_window</field>
+         <field name="res_model">res.partner</field>
+         <field name="view_type">form</field>
+         <field name="domain">[]</field>
+         <field name="view_mode">tree,form</field>
+         <field name="context">{}</field>
+         <field name="filter" eval="True"/>
+         <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+               Click to add a contact in your address book.
+            </p>
+            <p>
+               Odoo helps you easily track all activities related to
+               a supplier: discussions, history of purchases,
+               documents, etc.
+            </p>
+         </field>
+      </record>
+
+      <record id="action_gsos_user_profile" model="ir.actions.act_window">
+         <field name="name">User Profile</field>
+         <field name="type">ir.actions.act_window</field>
+         <field name="res_model">res.partner</field>
+         <field name="view_type">form</field>
+         <field name="domain">[('gsos_user_ids', 'in', [uid])]</field>
+         <field name="view_mode">tree,form</field>
+         <field name="context">{}</field>
+         <field name="filter" eval="True"/>
+      </record>
+
+      <menuitem id="menu_gsos_audits"
+         name="Audits"
+         groups="group_gsos_user"
+         sequence="20">
+      </menuitem>
+
+      <menuitem id="menu_gsos_audits_audits"
+         name="Audits"
+         groups="group_gsos_user"
+         parent="menu_gsos_audits"
+         sequence="20">
+      </menuitem>
+
+      <menuitem id="menu_gsos_user_profile"
+         name="Profile"
+         action="action_gsos_user_profile"
+         groups="group_gsos_user"
+         sequence="20">
+      </menuitem>
+
+      <menuitem id="menu_gsos_suppliers"
+         name="Suppliers"
+         action="action_gsos_suppliers"
+         groups="group_gsos_user"
+         parent="menu_gsos_audits_audits"
+         sequence="20">
+      </menuitem>
+
+   </data>
+</openerp>

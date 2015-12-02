@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+   <data>
+
+      <record id="gsos_res_users_view_form" model="ir.ui.view">
+         <field name="name">gsos.res.users.form</field>
+         <field name="model">res.users</field>
+         <field name="inherit_id" ref="base.view_users_form" />
+         <field name="arch" type="xml">
+            <page string="Suppliers" position="after">
+            </page>
+         </field>
+      </record>
+
+   </data>
+</openerp>

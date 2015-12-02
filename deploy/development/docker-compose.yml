@@ -1,0 +1,15 @@
+gstd_odoo_db:
+   image: postgres
+   container_name: gstd-odoo-db
+   environment:
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=odoo
+gstd_odoo:
+   image: odoo
+   container_name: gstd-odoo
+   ports:
+      - "8069:8069"
+   volumes:
+      - ../../src:/mnt/extra-addons
+   links:
+      - gstd_odoo_db:db
