@@ -45,7 +45,7 @@
                   <field string="Contracts" name="gpsi_quotation_count" widget="statinfo"/>
                </button>
             </div>
-            <page name="internal_notes" string="Internal Notes" position="after">
+            <page name="internal_notes" position="after">
                <field name="gpsi_employees_count" />
                <field name="gpsi_logistics_coordinator_id" />
                <field name="gpsi_source_id" />
