@@ -64,6 +64,18 @@
          sequence="20">
       </menuitem>
 
+      <act_window id="action_gpsi_recommended_sources"
+         name="Recommended Sources"
+         res_model="gpsi.partner.recommended.source"
+         view_mode="tree">
+      </act_window>
+
+      <act_window id="action_gpsi_other_sources"
+         name="Other Sources"
+         res_model="gpsi.partner.other.source"
+         view_mode="tree">
+      </act_window>
+
       ########################################################
       # Audits menu
 
@@ -119,6 +131,31 @@
          parent="menu_gpsi_audits_configuration_catalogs"
          action="action_gpsi_nace_codes"
          sequence="3">
+      </menuitem>
+
+      ########################################################
+
+      ########################################################
+      # Gpsi Settings
+
+      <menuitem id="menu_gpsi_settings_gpsi"
+         name="Gpsi"
+         parent="base.menu_administration"
+         sequence="8">
+      </menuitem>
+
+      <menuitem id="menu_gpsi_settings_gpsi_recommended_sources"
+         name="Recommended Sources"
+         parent="menu_gpsi_settings_gpsi"
+         action="action_gpsi_recommended_sources"
+         sequence="1">
+      </menuitem>
+
+      <menuitem id="menu_gpsi_settings_gpsi_other_sources"
+         name="Other Sources"
+         parent="menu_gpsi_settings_gpsi"
+         action="action_gpsi_other_sources"
+         sequence="2">
       </menuitem>
 
       ########################################################

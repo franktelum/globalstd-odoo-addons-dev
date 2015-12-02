@@ -3,8 +3,8 @@
    <data>
 
       <record id="gpsi_contract_view_tree" model="ir.ui.view">
-         <field name="name">gpsi.partner.recommended.source.view.tree</field>
-         <field name="model">gpsi.partner.recommended.source</field>
+         <field name="name">gpsi.partner.other.source.view.tree</field>
+         <field name="model">gpsi.partner.other.source</field>
          <field name="help" type="html">
              <p>
                  Click to create a new source.

@@ -9,3 +9,4 @@ import contract
 import quotation
 import partner
 import partner_recommended_source
+import partner_other_source
