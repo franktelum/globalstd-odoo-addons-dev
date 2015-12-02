@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import gps
 import application_form
 import audit_event
 import audit_standard
@@ -8,5 +9,3 @@ import order_line
 import contract
 import quotation
 import partner
-import partner_recommended_source
-import partner_other_source

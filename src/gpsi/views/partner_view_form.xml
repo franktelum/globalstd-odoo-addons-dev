@@ -37,11 +37,16 @@
          <field name="model">res.partner</field>
          <field name="inherit_id" ref="base.view_partner_form"></field>
          <field name="arch" type="xml">
+            <sheet>
+               <field name="id" invisible="1" />
+            </sheet>
             <div class="oe_button_box" name="button_box" position="inside">
-               <button  class="oe_stat_button" name="%(act_gpsi_partner_2_quotation_all)d"  type="action" icon="fa-dollar" attrs="{'invisible': [('customer','=', False)]}">
+               <button  class="oe_stat_button" name="%(act_gpsi_partner_2_quotation_all)d"
+                  type="action" icon="fa-dollar" attrs="{'invisible': ['|', ('customer','=', False), ('id','=', False)]}">
                   <field string="Quotations" name="gpsi_contract_count" widget="statinfo"/>
                </button>
-               <button  class="oe_stat_button" name="%(act_gpsi_partner_2_contract_all)d"  type="action" icon="fa-files-o" attrs="{'invisible': [('customer','=', False)]}">
+               <button  class="oe_stat_button" name="%(act_gpsi_partner_2_contract_all)d"
+                  type="action" icon="fa-files-o" attrs="{'invisible': ['|', ('customer','=', False), ('id','=', False)]}">
                   <field string="Contracts" name="gpsi_quotation_count" widget="statinfo"/>
                </button>
             </div>

@@ -61,7 +61,7 @@ class Partner(models.Model):
         ondelete=None)
 
     gpsi_source_id = fields.Many2one(
-        comodel_name='gpsi.partner.recommended.source',
+        comodel_name='gps.recommended',
         string='Source',
         help=None,
         readonly=False,

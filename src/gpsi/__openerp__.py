@@ -17,9 +17,8 @@
         'views/contract_view_form.xml',
         'views/contract_view_tree.xml',
         'views/partner_view_form.xml',
-        'views/partner_recommended_source_view_tree.xml',
-        'views/partner_other_source_view_tree.xml',
         'views/product_view_form.xml',
+        'views/gps_views.xml',
         'data/contract_sequence.xml',
         'data/quotation_sequence.xml',
         'data/audit_event_sequence.xml'

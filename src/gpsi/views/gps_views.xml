@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+   <data>
+
+      <record id="gps_recommended_view_tree" model="ir.ui.view">
+         <field name="name">gps.recommended.view.tree</field>
+         <field name="model">gps.recommended</field>
+         <field name="arch" type="xml">
+            <tree string="Recommended By" editable="bottom">
+               <field name="name"/>
+            </tree>
+         </field>
+      </record>
+
+      <record id="gps_source_view_tree" model="ir.ui.view">
+         <field name="name">gps.source.view.tree</field>
+         <field name="model">gps.source</field>
+         <field name="arch" type="xml">
+            <tree string="Sources" editable="bottom">
+               <field name="name"/>
+            </tree>
+         </field>
+      </record>
+
+   </data>
+</openerp>
