@@ -46,9 +46,13 @@
                </button>
             </div>
             <page name="internal_notes" position="after">
-               <field name="gpsi_employees_count" />
-               <field name="gpsi_logistics_coordinator_id" />
-               <field name="gpsi_source_id" />
+               <page name="gpsi_certification" string="Certification">
+                  <group>
+                     <field name="gpsi_employees_count" />
+                     <field name="gpsi_logistics_coordinator_id" />
+                     <field name="gpsi_source_id" />
+                  </group>
+               </page>
             </page>
          </field>
       </record>
