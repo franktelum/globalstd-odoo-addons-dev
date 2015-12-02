@@ -257,4 +257,4 @@ class Contract(models.Model):
     @api.depends('audit_event_ids')
     def _compute_audit_event_count(self):
         for contract in self:
-            contract.audit_event_count = len(self.audit_event_ids);
+            contract.audit_event_count = len(contract.audit_event_ids)

@@ -1,5 +1,5 @@
 {
-    'name': 'GlobalSTD',
+    'name': 'Gpsi',
     'version': '1.0',
     'summary': 'Gestiona procesos de GlobalSTD',
     'description': 'Gestiona procesos de GlobalSTD',
@@ -17,6 +17,7 @@
         'views/contract_view_form.xml',
         'views/contract_view_tree.xml',
         'views/partner_view_form.xml',
+        'views/partner_recommended_source_view_tree.xml',
         'views/product_view_form.xml',
         'data/contract_sequence.xml',
         'data/quotation_sequence.xml',
