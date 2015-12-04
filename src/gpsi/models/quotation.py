@@ -30,10 +30,10 @@ class Quotation(models.Model):
         groups=[])
 
     client_id = fields.Many2one(comodel_name='res.partner',
-        string='Contact',
+        string='Client',
         help=None,
         readonly=False,
-        required=False,
+        required=True,
         domain=None,
         context=None,
         ondelete=None)
@@ -46,6 +46,7 @@ class Quotation(models.Model):
           ('closed', 'Closed')
         ],
         string='State',
+        default='draft',
         help=None,
         readonly=False,
         required=False,
@@ -59,14 +60,14 @@ class Quotation(models.Model):
         string='Type',
         help=None,
         readonly=False,
-        required=False,
+        required=True,
         groups=[])
 
     standard = fields.Many2one(comodel_name='gpsi.audit.standard',
         string='Standard',
         help=None,
         readonly=False,
-        required=False,
+        required=True,
         domain=None,
         context=None,
         ondelete=None)

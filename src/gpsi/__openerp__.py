@@ -16,6 +16,7 @@
         'views/audit_nace_code_view_form.xml',
         'views/contract_view_form.xml',
         'views/contract_view_tree.xml',
+        'views/quotation_view_form.xml',
         'views/partner_view_form.xml',
         'views/product_view_form.xml',
         'views/gps_views.xml',

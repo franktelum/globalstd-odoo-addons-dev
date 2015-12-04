@@ -13,11 +13,22 @@
       </record>
 
       <record id="gps_source_view_tree" model="ir.ui.view">
-         <field name="name">gps.source.view.tree</field>
-         <field name="model">gps.source</field>
+         <field name="name">gps.fuente.view.tree</field>
+         <field name="model">gps.fuente</field>
          <field name="arch" type="xml">
             <tree string="Sources" editable="bottom">
                <field name="name"/>
+            </tree>
+         </field>
+      </record>
+
+      <record id="gps_habilidades_view_tree" model="ir.ui.view">
+         <field name="name">gps.habilidades.view.tree</field>
+         <field name="model">gps.habilidades</field>
+         <field name="arch" type="xml">
+            <tree string="Habilidades">
+               <field name="name"/>
+               <field name="tipo"/>
             </tree>
          </field>
       </record>
