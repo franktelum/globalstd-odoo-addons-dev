@@ -33,5 +33,15 @@
          </field>
       </record>
 
+      <record id="gps_eventos_view_tree" model="ir.ui.view">
+         <field name="name">gps.eventos.view.tree</field>
+         <field name="model">gps.eventos</field>
+         <field name="arch" type="xml">
+            <tree string="Eventos">
+               <field name="name"/>
+            </tree>
+         </field>
+      </record>
+
    </data>
 </openerp>

@@ -4,7 +4,7 @@ from openerp import models, fields, api
 
 class BusinessSector(models.Model):
     _name = 'gsos.business.sector'
-    _description = 'Business Sector'
+    _description = 'gsos.business.sector'
 
     name = fields.Char(
         string='Name',

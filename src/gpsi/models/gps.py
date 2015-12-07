@@ -8,18 +8,22 @@ class GpsCertificacionTipo(models.Model):
 
     name = fields.Char(string='Name')
 
-class GpsCertificacionTipo(models.Model):
-    _name = 'gps.certificacion.tipo'
-    _description = 'gps.certificacion.tipo'
-
-    name = fields.Char(string='Name')
-
 class GpsHabilidades(models.Model):
     _name = 'gps.habilidades'
     _description = 'gps.habilidades'
 
     name = fields.Char(related='nombre', string='Name')
 
+    fields.Selection(
+        selection=[
+          ('key', 'value')
+        ],
+        string='TextField',
+        help=None,
+        readonly=False,
+        required=False,
+        groups=[])
+        
     id_habilidad = fields.Integer(string='Id Habilidad')
     nombre = fields.Char(string='Nombre')
     tipo = fields.Integer(string='Tipo')
@@ -129,36 +133,36 @@ class GpsEventos(models.Model):
     name = fields.Char(related='numero_trabajo', string='Name')
 
     numero_trabajo = fields.Char(string='Número de Trabajo')
-    id_habilidad = fields.Char(string='Id Habilidad')
+    id_habilidad = fields.Many2one(comodel_name='gps.habilidades', string='Id Habilidad')
     domicilio = fields.Char(string='Domicilio')
     fecha_inicio = fields.Date(string='Fecha Inicio')
     fecha_termino = fields.Date(string='Fecha Termino')
-    estado_evento = fields.Char(string='Estado Evento')
-    tipo_evento = fields.Char(string='Tipo Evento')
+    estado_evento = fields.Integer(string='Estado Evento')
+    tipo_evento = fields.Integer(string='Tipo Evento')
     introduccion = fields.Char(string='Introducción')
-    pago = fields.Char(string='Pago')
+    pago = fields.Float(string='Pago')
     fecha_aviso = fields.Date(string='Fecha Aviso')
     comentarios = fields.Char(string='Comentarios')
-    id_revisor = fields.Char(string='Revisor')
-    estado_revisor = fields.Char(string='Estado Revisor')
+    id_revisor = fields.Integer(string='Revisor')
+    estado_revisor = fields.Integer(string='Estado Revisor')
     nota_revisor = fields.Char(string='Nota Revisor')
-    id_comite = fields.Char(string='Id Comite')
-    estado_comite = fields.Char(string='Estado Comite')
+    id_comite = fields.Integer(string='Id Comite')
+    estado_comite = fields.Integer(string='Estado Comite')
     nota_comite = fields.Char(string='Nota Comite')
-    id_client_service = fields.Char(string='Id Client Service')
+    id_client_service = fields.Integer(string='Id Client Service')
     no_seguimiento_trans = fields.Integer(string='No Seguimiento Trans')
     id_contrato = fields.Char(string='Id Contrato')
-    id_cliente = fields.Char(string='Id Cliente')
-    estado_republica = fields.Char(string='Estado Republica')
-    discapacidad = fields.Char(string='Discapacidad')
-    es_conferencia = fields.Char(string='¿Es Conferencia?')
+    id_cliente = fields.Many2one(comodel_name='res.partner', string='Id Cliente')
+    estado_republica = fields.Integer(string='Estado Republica')
+    discapacidad = fields.Boolean(string='¿Discapacidad?')
+    es_conferencia = fields.Boolean(string='¿Es Conferencia?')
     archivo_plan_auditoria = fields.Char(string='Archivo Plan Auditoría')
     id_ubicacion = fields.Char(string='Id Ubicación')
     archivo_reporte_auditoria = fields.Char(string='Archivo Reporte Auditoría')
     id_oficina = fields.Char(string='Id Oficina')
     ciudad = fields.Char(string='Ciudad')
     nota_auditor = fields.Char(string='Nota Auditor')
-    estatus = fields.Char(string='Estaus')
+    estatus = fields.Integer(string='Estaus')
     fecha_envio_fssc = fields.Date(string='Fecha Envio FSSC')
 
 class GpsFuente(models.Model):

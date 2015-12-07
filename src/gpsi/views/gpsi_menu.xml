@@ -144,6 +144,12 @@
          view_mode="tree,form">
       </act_window>
 
+      <act_window id="action_gps_eventos"
+         name="Eventos"
+         res_model="gps.eventos"
+         view_mode="tree,form">
+      </act_window>
+
       <menuitem id="menu_gpsi_settings_gps"
          name="Gps"
          parent="base.menu_administration"
@@ -175,6 +181,13 @@
          parent="menu_gpsi_settings_gps"
          action="action_gps_habilidades"
          sequence="2">
+      </menuitem>
+
+      <menuitem id="menu_gpsi_settings_gps_eventos"
+         name="Eventos"
+         parent="menu_gpsi_settings_gps"
+         action="action_gps_eventos"
+         sequence="3">
       </menuitem>
 
       ########################################################
