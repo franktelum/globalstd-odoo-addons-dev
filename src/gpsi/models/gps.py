@@ -14,16 +14,6 @@ class GpsHabilidades(models.Model):
 
     name = fields.Char(related='nombre', string='Name')
 
-    fields.Selection(
-        selection=[
-          ('key', 'value')
-        ],
-        string='TextField',
-        help=None,
-        readonly=False,
-        required=False,
-        groups=[])
-
     id_habilidad = fields.Integer(string='Id Habilidad')
     nombre = fields.Char(string='Nombre')
     tipo = fields.Integer(string='Tipo')
