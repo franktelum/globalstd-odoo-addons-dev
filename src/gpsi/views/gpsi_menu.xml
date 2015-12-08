@@ -144,9 +144,27 @@
          view_mode="tree,form">
       </act_window>
 
+      <act_window id="action_gps_nace_codes"
+         name="Nace Codes"
+         res_model="gps.nacecode"
+         view_mode="tree,form">
+      </act_window>
+
+      <act_window id="action_gps_contratos"
+         name="Contratos"
+         res_model="gps.contratos"
+         view_mode="tree,form">
+      </act_window>
+
       <act_window id="action_gps_eventos"
          name="Eventos"
          res_model="gps.eventos"
+         view_mode="tree,form">
+      </act_window>
+
+      <act_window id="action_gps_no_conformidades"
+         name="No Conformidades"
+         res_model="gps.noconformidades"
          view_mode="tree,form">
       </act_window>
 
@@ -183,11 +201,32 @@
          sequence="2">
       </menuitem>
 
+      <menuitem id="menu_gpsi_settings_gps_nace_codes"
+         name="NACE Codes"
+         parent="menu_gpsi_settings_gps"
+         action="action_gps_nace_codes"
+         sequence="3">
+      </menuitem>
+
+      <menuitem id="menu_gpsi_settings_gps_contratos"
+         name="Contratos"
+         parent="menu_gpsi_settings_gps"
+         action="action_gps_contratos"
+         sequence="4">
+      </menuitem>
+
       <menuitem id="menu_gpsi_settings_gps_eventos"
          name="Eventos"
          parent="menu_gpsi_settings_gps"
          action="action_gps_eventos"
-         sequence="3">
+         sequence="5">
+      </menuitem>
+
+      <menuitem id="menu_gpsi_settings_gps_no_conformidades"
+         name="No Conformidades"
+         parent="menu_gpsi_settings_gps"
+         action="action_gps_no_conformidades"
+         sequence="6">
       </menuitem>
 
       ########################################################

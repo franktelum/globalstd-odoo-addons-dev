@@ -236,7 +236,7 @@ class GpsNoConformidades(models.Model):
     _name = 'gps.noconformidades'
     _description = 'gps.noconformidades'
 
-    name = fields.Char(related='nombre', string='Name')
+    name = fields.Char(related='id_no_conformidad', string='Name')
 
     id_no_conformidad = fields.Char(string='Id NoConformidad')
     id_cliente = fields.Char(string='Id Cliente')
@@ -257,3 +257,19 @@ class GpsNoConformidades(models.Model):
     cierre_Count = fields.Char(string='Cierre Count')
     fecha_cambio = fields.Char(string='Fecha Cambio')
     is_site = fields.Char(string='In Site')
+
+
+class GpsEventosFacturacion(models.Model):
+    _name = 'gps.eventos.facturacion'
+    _description = 'gps.eventos.facturacion'
+
+    name = fields.Char(related='numero_trabajo', string='Name')
+
+    numero_trabajo = fields.Char(string='Numero Trabajo')
+    estatus = fields.Char(string='Estatus')
+    pagado = fields.Char(string='Pagado')
+    fecha_pagado = fields.Char(string='Fecha Pagado')
+    fecha_actualizacion = fields.Char(string='Fecha Actualizacion')
+    fecha_facturado = fields.Char(string='Fecha Facturado')
+    id_usuario = fields.Char(string='Id Usuario')
+    comentarios = fields.Char(string='Comentarios')
