@@ -2,7 +2,7 @@
 
 from openerp import models, fields, api
 
-class Partner(models.Model):
+class ResPartner(models.Model):
     _inherit = ['res.partner']
 
     gsos_user_ids = fields.One2many(

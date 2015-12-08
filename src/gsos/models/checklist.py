@@ -4,7 +4,7 @@ from openerp import models, fields, api
 
 class Checklist(models.Model):
     _name = 'gsos.checklist'
-    _description = 'gsos.checklist'
+    _description = 'Checklist'
     _inherit = ['mail.thread']
 
     name = fields.Char(

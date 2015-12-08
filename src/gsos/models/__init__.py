@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 
-import partner
+import audit
 import business_sector
-import user
 import checklist
+import complaint
+import invitation
+import ir_attachment
+import res_partner
+import res_users

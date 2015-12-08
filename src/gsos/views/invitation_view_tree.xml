@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+   <data>
+
+      <record id="gsos_invitation_view_tree" model="ir.ui.view">
+         <field name="name">gsos.invitation.tree</field>
+         <field name="model">gsos.invitation</field>
+         <field name="arch" type="xml">
+            <tree string="Invitations">
+               <field name="name" />
+               <field name="email" string="Supplier Email"/>
+               <field name="state"/>
+            </tree>
+         </field>
+      </record>
+
+   </data>
+</openerp>

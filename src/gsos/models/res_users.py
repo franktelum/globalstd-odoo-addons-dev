@@ -2,7 +2,7 @@
 
 from openerp import models, fields, api
 
-class Supplier(models.Model):
+class ResUsers(models.Model):
     _inherit = ['res.users']
 
     gsos_supplier_ids = fields.Many2many(

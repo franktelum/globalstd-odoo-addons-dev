@@ -4,13 +4,14 @@ from openerp import models, fields, api
 
 class Audit(models.Model):
     _name = 'gsos.audit'
-    _description = 'gsos.audit'
+    _description = 'Audit'
     _inherit = ['mail.thread']
 
     name = fields.Char(
         string='Code',
+        default='New',
         help=None,
-        readonly=False,
+        readonly=True,
         required=True,
         groups=[])
 
@@ -62,3 +63,11 @@ class Audit(models.Model):
         readonly=False,
         required=False,
         groups=[])
+
+    @api.model
+    def create(self, vals):
+        if vals.get('name', 'New') == 'New':
+            vals['name'] = self.env['ir.sequence'].next_by_code('gsos.audit') or 'New'
+
+        result = super(Audit, self).create(vals)
+        return result

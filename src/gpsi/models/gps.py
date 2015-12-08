@@ -23,7 +23,7 @@ class GpsHabilidades(models.Model):
         readonly=False,
         required=False,
         groups=[])
-        
+
     id_habilidad = fields.Integer(string='Id Habilidad')
     nombre = fields.Char(string='Nombre')
     tipo = fields.Integer(string='Tipo')
@@ -184,3 +184,18 @@ class GpsRecommended(models.Model):
         readonly=False,
         required=True,
         groups=[])
+
+class GpsNaceCode(models.Model):
+    _name = 'gps.nacecode'
+    _description = 'gps.nacecode'
+
+    name = fields.Char(related='nombre', string='Name')
+
+    id_nace_code = fields.Char(string='Id NaceCode')
+    nombre = fields.Char(string='Nombre')
+    description = fields.Char(string='Descripción')
+    id_habilidad = fields.Char(string='Id Habilidad')
+    baja = fields.Char(string='Baja')
+    acreditado_por_anaf = fields.Char(string='Acreditado por ANAF')
+    clase_riesgo = fields.Char(string='Clase Riesgo')
+    iaf = fields.Char(string='IAF')

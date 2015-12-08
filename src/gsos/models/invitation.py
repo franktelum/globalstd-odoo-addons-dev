@@ -4,25 +4,16 @@ from openerp import models, fields, api
 
 class Invitation(models.Model):
     _name = "gsos.invitation"
-    _description = 'gsos.invitation'
+    _description = 'Invitation'
     _inherit = ['mail.thread']
 
     name = fields.Char(
         string='Code',
+        default='New',
         help=None,
         readonly=False,
         required=True,
         groups=[])
-
-    user_id = fields.Many2one(
-        comodel_name='res.users',
-        string='User',
-        help=None,
-        readonly=False,
-        required=False,
-        domain=None,
-        context=None,
-        ondelete=None)
 
     user_id = fields.Many2one(
         comodel_name='res.users',
@@ -38,7 +29,7 @@ class Invitation(models.Model):
         string='Email',
         help=None,
         readonly=False,
-        required=False,
+        required=True,
         groups=[])
 
     notes = fields.Text(
@@ -49,7 +40,7 @@ class Invitation(models.Model):
         groups=[],
         translate=False)
 
-    documents = fields.One2many(
+    document_ids = fields.One2many(
         comodel_name='ir.attachment',
         inverse_name='gsos_invitation_id',
         string=None,
@@ -73,3 +64,17 @@ class Invitation(models.Model):
         readonly=False,
         required=False,
         groups=[])
+
+    @api.model
+    def create(self, vals):
+        if vals.get('name', 'New') == 'New':
+            vals['name'] = self.env['ir.sequence'].next_by_code('gsos.invitation') or 'New'
+
+        result = super(Invitation, self).create(vals)
+        return result
+
+    @api.multi
+    def action_send_invitation(self):
+        for record in self:
+            record.state = 'sent'
+        return
