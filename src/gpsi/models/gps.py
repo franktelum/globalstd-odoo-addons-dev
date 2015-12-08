@@ -93,18 +93,7 @@ class GpsContratos(models.Model):
     ap_diseno = fields.Boolean(string='¿Diseño?')
     multisitio = fields.Boolean(string='¿Multisitio?')
     bilingue = fields.Boolean(string='¿Bilingue?')
-    nivel_riesgo = fields.Selection(
-        selection=[
-          (0, 'Alto')
-          ,(1,'Medio')
-          ,(2,'Bajo')
-          ,(3,'Limitado')
-        ],
-        string='Nivel Riesgo',
-        help=None,
-        readonly=False,
-        required=False,
-        groups=[])
+    nivel_riesgo = fields.Char(string='Nivel Riesgo')
     duracion = fields.Integer(string='Duracion')
     fecha_contrato = fields.Date(string='Fecha Contrato')
     notas = fields.Char(string='Notas')
