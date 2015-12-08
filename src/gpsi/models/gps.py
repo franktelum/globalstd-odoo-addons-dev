@@ -23,7 +23,7 @@ class GpsHabilidades(models.Model):
         readonly=False,
         required=False,
         groups=[])
-        
+
     id_habilidad = fields.Integer(string='Id Habilidad')
     nombre = fields.Char(string='Nombre')
     tipo = fields.Integer(string='Tipo')
@@ -80,12 +80,31 @@ class GpsContratos(models.Model):
     name = fields.Char(related='no_contrato', string='Name')
 
     no_contrato = fields.Char(string='No Contrato')
+    esquema = fields.Selection(
+        selection=[
+          (0, 'Semestral'),(1,'Anual')
+        ],
+        string='Esquema',
+        help=None,
+        readonly=False,
+        required=False,
+        groups=[])
     id_habilidad = fields.Many2one(comodel_name='gps.habilidades', string='Habilidad')
-    esquema = fields.Char(string='Esquema')
     ap_diseno = fields.Boolean(string='¿Diseño?')
     multisitio = fields.Boolean(string='¿Multisitio?')
     bilingue = fields.Boolean(string='¿Bilingue?')
-    nivel_riesgo = fields.Char(string='Nivel Riesgo')
+    nivel_riesgo = fields.Selection(
+        selection=[
+          (0, 'Alto')
+          ,(1,'Medio')
+          ,(2,'Bajo')
+          ,(3,'Limitado')
+        ],
+        string='Nivel Riesgo',
+        help=None,
+        readonly=False,
+        required=False,
+        groups=[])
     duracion = fields.Integer(string='Duracion')
     fecha_contrato = fields.Date(string='Fecha Contrato')
     notas = fields.Char(string='Notas')
@@ -97,9 +116,20 @@ class GpsContratos(models.Model):
     archivo_cotizacion = fields.Char(string='Archivo Cotización')
     archivo_transferencia = fields.Char(string='Archivo Transferencia')
     id_contrato = fields.Char(string='Id Contrato')
-    id_cliente = fields.Char(string='Id Cliente')
+    id_cliente = fields.Many2one(comodel_name='res.partner', string='Id Cliente')
     id_revisor = fields.Integer(string='Id Revisor')
-    estado_revisor = fields.Char(string='Estado Revisor')
+    estado_revisor = fields.Selection(
+        selection=[
+          (0, 'Ninguno')
+          ,(1,'Aprobado')
+          ,(2,'Hold')
+          ,(3,'Revision')
+        ],
+        string='Estado Revisor',
+        help=None,
+        readonly=False,
+        required=False,
+        groups=[])
     nota_revisor = fields.Char(string='Nota Revisor')
     id_ventas = fields.Char(string='Id Ventas')
     fee01 = fields.Float(string='Fee01')
@@ -114,11 +144,32 @@ class GpsContratos(models.Model):
     informacion_avance = fields.Char(string='Información Avance')
     fechainicio = fields.Date(string='Fecha Inicio')
     fechafin = fields.Date(string='Fecha Fin')
-    tipocertificacion = fields.Char(string='Tipo Certificación')
+    tipocertificacion = fields.Selection(
+        selection=[
+          (1, 'Initial')
+          ,(2,'Recertification')
+          ,(3,'Takeover')
+        ],
+        string='Tipo Certificación',
+        help=None,
+        readonly=False,
+        required=False,
+        groups=[])
     mostrarnace = fields.Boolean(string='¿Mostrar NACE?')
     tipoesquema = fields.Char(string='Tipo Esquema')
     bloquearcontrato = fields.Boolean(string='¿Bloquear Contrato?')
-    estatus_certificado = fields.Integer(string='Estatus Certificado')
+    estatus_certificado = fields.Selection(
+        selection=[
+          (0, 'Active')
+          ,(1,'Expired')
+          ,(2,'Suspended')
+          ,(3,'Canceled')
+        ],
+        string='Estatus Certificado',
+        help=None,
+        readonly=False,
+        required=False,
+        groups=[])
     haccp = fields.Integer(string='HACCP')
     aplica_viaticos = fields.Char(string='Aplica Viaticos')
     id_md5_qms = fields.Float(string='Id Md5 Qms')
