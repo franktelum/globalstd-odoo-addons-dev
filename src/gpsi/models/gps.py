@@ -209,21 +209,13 @@ class GpsFuente(models.Model):
     _name = 'gps.fuente'
     _description = 'gps.fuente'
 
-    name = fields.Char(string='Name',
-        help=None,
-        readonly=False,
-        required=True,
-        groups=[])
+    name = fields.Char(string='Name')
 
 class GpsRecommended(models.Model):
     _name = 'gps.recommended'
     _description = 'gps.recommended'
 
-    name = fields.Char(string='Name',
-        help=None,
-        readonly=False,
-        required=True,
-        groups=[])
+    name = fields.Char(string='Name')
 
 class GpsNaceCode(models.Model):
     _name = 'gps.nacecode'
@@ -239,3 +231,29 @@ class GpsNaceCode(models.Model):
     acreditado_por_anaf = fields.Char(string='Acreditado por ANAF')
     clase_riesgo = fields.Char(string='Clase Riesgo')
     iaf = fields.Char(string='IAF')
+
+class GpsNoConformidades(models.Model):
+    _name = 'gps.noconformidades'
+    _description = 'gps.noconformidades'
+
+    name = fields.Char(related='nombre', string='Name')
+
+    id_no_conformidad = fields.Char(string='Id NoConformidad')
+    id_cliente = fields.Char(string='Id Cliente')
+    numero_trabajo = fields.Char(string='Numero Trabajo')
+    sentencia = fields.Char(string='Sentencia')
+    sentencia_archivo = fields.Char(string='Sentencia Archivo')
+    tipo = fields.Char(string='Tipo')
+    contencion = fields.Char(string='Contencion')
+    contencion_archivo = fields.Char(string='Contencion Archivo')
+    causa_raiz = fields.Char(string='Causa Raiz')
+    causa_raiz_archivo = fields.Char(string='Causa Raiz Archivo')
+    implementacion = fields.Char(string='Implementacion')
+    implementacion_archivo = fields.Char(string='Implementacion Archivo')
+    status = fields.Char(string='Status')
+    notas = fields.Char(string='Notas')
+    fecha_apertura = fields.Char(string='Fecha Apertura')
+    fecha_cierre = fields.Char(string='Fecha Cierre')
+    cierre_Count = fields.Char(string='Cierre Count')
+    fecha_cambio = fields.Char(string='Fecha Cambio')
+    is_site = fields.Char(string='In Site')
