@@ -231,11 +231,11 @@ class GpsNaceCode(models.Model):
 
     name = fields.Char(related='nombre', string='Name')
 
-    id_nace_code = fields.Char(string='Id NaceCode')
+    id_nace_code = fields.Integer(string='Id NaceCode')
     nombre = fields.Char(string='Nombre')
     description = fields.Char(string='Descripción')
-    id_habilidad = fields.Char(string='Id Habilidad')
-    baja = fields.Char(string='Baja')
-    acreditado_por_anaf = fields.Char(string='Acreditado por ANAF')
+    id_habilidad = fields.Many2one(comodel_name='gps.habilidades',string='Id Habilidad')
+    baja = fields.Integer(string='Baja')
+    acreditado_por_anaf = fields.Boolean(string='Acreditado por ANAB')
     clase_riesgo = fields.Char(string='Clase Riesgo')
-    iaf = fields.Char(string='IAF')
+    iaf = fields.Integer(string='IAF')
