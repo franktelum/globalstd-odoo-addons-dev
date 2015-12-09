@@ -233,21 +233,20 @@ class GpsNoConformidades(models.Model):
     numero_trabajo = fields.Char(string='Numero Trabajo')
     sentencia = fields.Char(string='Sentencia')
     sentencia_archivo = fields.Char(string='Sentencia Archivo')
-    tipo = fields.Char(string='Tipo')
+    tipo = fields.Integer(string='Tipo')
     contencion = fields.Char(string='Contencion')
     contencion_archivo = fields.Char(string='Contencion Archivo')
     causa_raiz = fields.Char(string='Causa Raiz')
     causa_raiz_archivo = fields.Char(string='Causa Raiz Archivo')
     implementacion = fields.Char(string='Implementacion')
     implementacion_archivo = fields.Char(string='Implementacion Archivo')
-    status = fields.Char(string='Status')
+    status = fields.Integer(string='Status')
     notas = fields.Char(string='Notas')
-    fecha_apertura = fields.Char(string='Fecha Apertura')
-    fecha_cierre = fields.Char(string='Fecha Cierre')
-    cierre_Count = fields.Char(string='Cierre Count')
-    fecha_cambio = fields.Char(string='Fecha Cambio')
-    is_site = fields.Char(string='In Site')
-
+    fecha_apertura = fields.Date(string='Fecha Apertura')
+    fecha_cierre = fields.Date(string='Fecha Cierre')
+    cierre_Count = fields.Integer(string='Cierre Count')
+    fecha_cambio = fields.Date(string='Fecha Cambio')
+    is_site = fields.Integer(string='In Site')
 
 class GpsEventosFacturacion(models.Model):
     _name = 'gps.eventos.facturacion'
