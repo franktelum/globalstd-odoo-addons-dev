@@ -263,3 +263,44 @@ class GpsEventosFacturacion(models.Model):
     fecha_facturado = fields.Char(string='Fecha Facturado')
     id_usuario = fields.Char(string='Id Usuario')
     comentarios = fields.Char(string='Comentarios')
+
+class GpsEventosConfirmacion(models.Model):
+    _name = 'gps.eventos.confirmacion'
+    _description = 'gps.eventos.confirmacion'
+
+    name = fields.Char(related='numero_trabajo', string='Name')
+
+    numero_trabajo = fields.Char(string='Numero Trabajo')
+    confirmado = fields.Char(string='Confirmado')
+    fecha = fields.Char(string='fecha')
+    consultoria_previa = fields.Char(string='Consultoria Previa')
+    comentarios = fields.Char(string='Comentarios')
+    confirma_programacion = fields.Char(string='Confirma Programación')
+    conflicto_intereses = fields.Char(string='Conflicto Intereses')
+
+class GpsEventosContrato(models.Model):
+    _name = 'gps.eventos.contrato'
+    _description = 'gps.eventos.contrato'
+
+    name = fields.Char(related='numero_trabajo', string='Name')
+
+    numero_trabajo = fields.Char(string='Numero Trabajo')
+    confirmado = fields.Char(string='Confirmado')
+    fecha = fields.Char(string='fecha')
+    consultoria_previa = fields.Char(string='Consultoria Previa')
+    comentarios = fields.Char(string='Comentarios')
+    confirma_programacion = fields.Char(string='Confirma Programación')
+    conflicto_intereses = fields.Char(string='Conflicto Intereses')
+
+class GpsArchivosTracking(models.Model):
+    _name = 'gps.archivos.tracking'
+    _description = 'gps.archivos.tracking'
+
+    name = fields.Char(related='nombre', string='Name')
+
+    id_archivo = fields.Char(string='Id Archivo')
+    numero_trabajo = fields.Char(string='Número Trabajo')
+    nombre = fields.Char(string='Nombre')
+    fecha_registro = fields.Char(string='Fecha Registro')
+    tipo_archivo = fields.Char(string='Tipo Archivo')
+    numero_archivo = fields.Char(string='Número Archivo')
