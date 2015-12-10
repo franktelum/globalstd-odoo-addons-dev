@@ -37,7 +37,7 @@ class Complaint(models.Model):
         string='Supplier',
         help=None,
         readonly=False,
-        required=False,
+        required=True,
         domain=None,
         context=None,
         ondelete=None)
@@ -46,7 +46,7 @@ class Complaint(models.Model):
         string='Reason',
         help=None,
         readonly=False,
-        required=False,
+        required=True,
         groups=[],
         translate=False)
 
@@ -57,6 +57,19 @@ class Complaint(models.Model):
           ('high', 'High'),
         ],
         string='Severity',
+        default='low',
+        help=None,
+        readonly=False,
+        required=False,
+        groups=[])
+
+    state = fields.Selection(
+        selection=[
+          ('open', 'Open'),
+          ('closed', 'Closed')
+        ],
+        string='State',
+        default='open',
         help=None,
         readonly=False,
         required=False,

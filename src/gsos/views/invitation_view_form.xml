@@ -19,7 +19,7 @@
                      </h1>
                   </div>
                   <group>
-                     <field name="user_id" />
+                     <field name="user_id" groups="gsos.group_gsos_manager" />
                      <field name="email" />
                      <field name="notes" />
                   </group>

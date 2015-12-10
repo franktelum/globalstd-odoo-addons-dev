@@ -15,12 +15,22 @@ class Audit(models.Model):
         required=True,
         groups=[])
 
+    user_id = fields.Many2one(
+        comodel_name='res.users',
+        string='User',
+        help=None,
+        readonly=False,
+        required=True,
+        domain=None,
+        context=None,
+        ondelete=None)
+
     supplier_id = fields.Many2one(
         comodel_name='res.partner',
         string='Supplier',
         help=None,
         readonly=False,
-        required=False,
+        required=True,
         domain=None,
         context=None,
         ondelete=None)
@@ -30,7 +40,7 @@ class Audit(models.Model):
         string='Checklist',
         help=None,
         readonly=False,
-        required=False,
+        required=True,
         domain=None,
         context=None,
         ondelete=None)

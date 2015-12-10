@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+   <data>
+
+      <!-- ################################  -->
+      <!-- Gsos root menu-->
+
+      <menuitem id="menu_gsos_mngr_gsos"
+         name="Gsos"
+         action="action_gsos_user_profile"
+         groups="group_gsos_manager"
+         sequence="20">
+      </menuitem>
+
+      <!-- End -->
+      <!-- ################################  -->
+
+      <!-- ################################  -->
+      <!-- Checklist menu-->
+
+      <act_window id="action_gsos_mngr_gsos_checklists"
+         name="Checklists"
+         res_model="gsos.checklist"
+         view_mode="tree,form">
+      </act_window>
+
+      <menuitem id="menu_gsos_mngr_gsos_checklists"
+         name="Checklists"
+         parent="menu_gsos_mngr_gsos"
+         action="action_gsos_mngr_gsos_checklists"
+         groups="group_gsos_manager"
+         sequence="1">
+      </menuitem>
+
+      <!-- End -->
+      <!-- ################################  -->
+
+      <!-- ################################  -->
+      <!-- Audit menu-->
+
+      <act_window id="action_gsos_mngr_gsos_audits"
+         name="Audits"
+         res_model="gsos.audit"
+         view_mode="tree,form,calendar">
+      </act_window>
+
+      <menuitem id="menu_gsos_mngr_gsos_audits"
+         name="Audits"
+         parent="menu_gsos_mngr_gsos"
+         action="action_gsos_mngr_gsos_audits"
+         groups="group_gsos_manager"
+         sequence="4">
+      </menuitem>
+
+      <!-- End -->
+      <!-- ################################  -->
+
+      <!-- ################################  -->
+      <!-- Complaint menu-->
+
+      <act_window id="action_gsos_mngr_gsos_complaints"
+         name="Complaints"
+         res_model="gsos.complaint"
+         view_mode="tree,form">
+      </act_window>
+
+      <menuitem id="menu_gsos_mngr_gsos_complaints"
+         name="Complaints"
+         parent="menu_gsos_mngr_gsos"
+         action="action_gsos_mngr_gsos_complaints"
+         groups="group_gsos_manager"
+         sequence="5">
+      </menuitem>
+
+      <!-- End -->
+      <!-- ################################  -->
+
+   </data>
+</openerp>

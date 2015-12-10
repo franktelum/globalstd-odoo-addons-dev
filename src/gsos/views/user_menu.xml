@@ -15,6 +15,7 @@
       <menuitem id="menu_gsos_user_profile"
          name="Profile"
          action="action_gsos_user_profile"
+         groups="group_gsos_user"
          sequence="20">
       </menuitem>
 
@@ -27,12 +28,14 @@
       <act_window id="action_gsos_user_checklists"
          name="Checklists"
          res_model="gsos.checklist"
-         view_mode="tree,form">
+         domain="[('user_id', '=', uid)]"
+         view_mode="tree">
       </act_window>
 
       <menuitem id="menu_gsos_user_checklists"
          name="Checklists"
          action="action_gsos_user_checklists"
+         groups="group_gsos_user"
          sequence="20">
       </menuitem>
 
@@ -63,6 +66,7 @@
          name="Invitations"
          parent="menu_gsos_clients"
          action="action_gsos_user_invitations"
+         groups="group_gsos_user"
          sequence="1">
       </menuitem>
 
@@ -70,6 +74,7 @@
          name="Clients"
          parent="menu_gsos_clients"
          action="action_gsos_user_clients"
+         groups="group_gsos_user"
          sequence="2">
       </menuitem>
 
@@ -82,12 +87,15 @@
       <act_window id="action_gsos_user_suppliers"
          name="Suppliers"
          res_model="res.partner"
+         domain="[('gsos_user_ids', 'in', [uid])]"
          view_mode="kanban,tree,form">
       </act_window>
 
       <act_window id="action_gsos_user_invitations"
          name="Invitations"
          res_model="gsos.invitation"
+         domain="[('gsos_user_ids', 'in', [uid])]"
+         context="{'default_user_id': uid}"
          view_mode="tree,form">
       </act_window>
 
@@ -100,6 +108,7 @@
          name="Invitations"
          parent="menu_gsos_suppliers"
          action="action_gsos_user_invitations"
+         groups="group_gsos_user"
          sequence="1">
       </menuitem>
 
@@ -107,6 +116,7 @@
          name="Suppliers"
          parent="menu_gsos_suppliers"
          action="action_gsos_user_suppliers"
+         groups="group_gsos_user"
          sequence="2">
       </menuitem>
 
@@ -125,6 +135,7 @@
       <menuitem id="menu_gsos_audits"
          name="Audits"
          action="action_gsos_user_audits"
+         groups="group_gsos_user"
          sequence="20">
       </menuitem>
 
@@ -137,12 +148,15 @@
       <act_window id="action_gsos_user_complaints"
          name="Complaints"
          res_model="gsos.complaint"
+         domain="[('user_id', '=', uid)]"
+         context="{'default_user_id': uid}"
          view_mode="tree,form,graph">
       </act_window>
 
       <menuitem id="menu_gsos_complaints"
          name="Complaints"
          action="action_gsos_user_complaints"
+         groups="group_gsos_user"
          sequence="20">
       </menuitem>
 
