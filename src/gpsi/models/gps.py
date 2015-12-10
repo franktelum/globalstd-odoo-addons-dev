@@ -12,7 +12,7 @@ class GpsHabilidades(models.Model):
     _name = 'gps.habilidades'
     _description = 'gps.habilidades'
 
-    name = fields.Char(related='nombre', string='Name')
+    _rec_name = 'nombre'
 
     id_habilidad = fields.Integer(string='Id Habilidad')
     nombre = fields.Char(string='Nombre')
@@ -31,7 +31,7 @@ class GpsClientes(models.Model):
     _name = 'gps.clientes'
     _description = 'gps.clientes'
 
-    name = fields.Char(related='clave_cliente', string='Name')
+    _rec_name = 'clave_cliente'
 
     clave_cliente = fields.Char(string='Clave')
     nombre_cliente = fields.Char(string='Nombre')
@@ -66,10 +66,11 @@ class GpsClientes(models.Model):
 class GpsContratos(models.Model):
     _name = 'gps.contratos'
     _description = 'gps.contratos'
+    _inherit = ['mail.thread']
 
-    name = fields.Char(related='no_contrato', string='Name')
+    _rec_name = 'no_contrato'
 
-    no_contrato = fields.Char(string='No Contrato')
+    no_contrato = fields.Char(string='No Contrato', default='New')
     esquema = fields.Selection(
         selection=[
           (0, 'Semestral'),(1,'Anual')
@@ -80,13 +81,13 @@ class GpsContratos(models.Model):
         required=False,
         groups=[])
     id_habilidad = fields.Many2one(comodel_name='gps.habilidades', string='Habilidad')
-    ap_diseno = fields.Boolean(string='¿Diseño?')
-    multisitio = fields.Boolean(string='¿Multisitio?')
-    bilingue = fields.Boolean(string='¿Bilingue?')
+    ap_diseno = fields.Boolean(string='¿Aplica Diseño?')
+    multisitio = fields.Boolean(string='¿Es Multisitio?')
+    bilingue = fields.Boolean(string='¿Necesita Auditor Bilingüe?')
     nivel_riesgo = fields.Char(string='Nivel Riesgo')
     duracion = fields.Integer(string='Duracion')
     fecha_contrato = fields.Date(string='Fecha Contrato')
-    notas = fields.Char(string='Notas')
+    notas = fields.Text(string='Notas')
     cancelado = fields.Boolean(string='¿Cancelado?')
     transferencia = fields.Boolean(string='¿Transferencia?')
     archivo_contrato = fields.Char(string='Archivo Contrato')
@@ -121,7 +122,7 @@ class GpsContratos(models.Model):
     recertificacion = fields.Boolean(string='¿Recertificación?')
     finalizado = fields.Boolean(string='¿Finalizado?')
     archivo_certificado = fields.Char(string='Archivo Certificado')
-    informacion_avance = fields.Char(string='Información Avance')
+    informacion_avance = fields.Text(string='Información Avance')
     fechainicio = fields.Date(string='Fecha Inicio')
     fechafin = fields.Date(string='Fecha Fin')
     tipocertificacion = fields.Selection(
@@ -161,7 +162,7 @@ class GpsEventos(models.Model):
     _name = 'gps.eventos'
     _description = 'gps.eventos'
 
-    name = fields.Char(related='numero_trabajo', string='Name')
+    _rec_name = 'numero_trabajo'
 
     numero_trabajo = fields.Char(string='Número de Trabajo')
     id_habilidad = fields.Many2one(comodel_name='gps.habilidades', string='Id Habilidad')
@@ -210,7 +211,7 @@ class GpsEventos(models.Model):
     introduccion = fields.Char(string='Introducción')
     pago = fields.Float(string='Pago')
     fecha_aviso = fields.Date(string='Fecha Aviso')
-    comentarios = fields.Char(string='Comentarios')
+    comentarios = fields.Text(string='Comentarios')
     id_revisor = fields.Integer(string='Revisor')
     estado_revisor = fields.Selection(
         selection=[
@@ -224,7 +225,7 @@ class GpsEventos(models.Model):
         readonly=False,
         required=False,
         groups=[])
-    nota_revisor = fields.Char(string='Nota Revisor')
+    nota_revisor = fields.Text(string='Nota Revisor')
     id_comite = fields.Integer(string='Id Comite')
     estado_comite = fields.Selection(
         selection=[
@@ -281,7 +282,7 @@ class GpsNaceCode(models.Model):
     _name = 'gps.nacecode'
     _description = 'gps.nacecode'
 
-    name = fields.Char(related='nombre', string='Name')
+    _rec_name = 'nombre'
 
     id_nace_code = fields.Integer(string='Id NaceCode')
     nombre = fields.Char(string='Nombre')
@@ -296,34 +297,33 @@ class GpsNoConformidades(models.Model):
     _name = 'gps.noconformidades'
     _description = 'gps.noconformidades'
 
-    name = fields.Char(related='id_no_conformidad', string='Name')
+    _rec_name = 'id_no_conformidad'
 
     id_no_conformidad = fields.Char(string='Id NoConformidad')
     id_cliente = fields.Many2one(comodel_name='res.partner', string='Id Cliente')
     numero_trabajo = fields.Many2one(comodel_name='gps.eventos', string='Numero Trabajo')
     sentencia = fields.Char(string='Sentencia')
     sentencia_archivo = fields.Char(string='Sentencia Archivo')
-    tipo = fields.Char(string='Tipo')
+    tipo = fields.Integer(string='Tipo')
     contencion = fields.Char(string='Contencion')
     contencion_archivo = fields.Char(string='Contencion Archivo')
     causa_raiz = fields.Char(string='Causa Raiz')
     causa_raiz_archivo = fields.Char(string='Causa Raiz Archivo')
     implementacion = fields.Char(string='Implementacion')
     implementacion_archivo = fields.Char(string='Implementacion Archivo')
-    status = fields.Char(string='Status')
+    status = fields.Integer(string='Status')
     notas = fields.Char(string='Notas')
-    fecha_apertura = fields.Char(string='Fecha Apertura')
-    fecha_cierre = fields.Char(string='Fecha Cierre')
-    cierre_Count = fields.Char(string='Cierre Count')
-    fecha_cambio = fields.Char(string='Fecha Cambio')
-    is_site = fields.Char(string='In Site')
-
+    fecha_apertura = fields.Date(string='Fecha Apertura')
+    fecha_cierre = fields.Date(string='Fecha Cierre')
+    cierre_Count = fields.Integer(string='Cierre Count')
+    fecha_cambio = fields.Date(string='Fecha Cambio')
+    is_site = fields.Integer(string='In Site')
 
 class GpsEventosFacturacion(models.Model):
     _name = 'gps.eventos.facturacion'
     _description = 'gps.eventos.facturacion'
 
-    name = fields.Char(related='numero_trabajo', string='Name')
+    _rec_name = 'numero_trabajo'
 
     numero_trabajo = fields.Char(string='Numero Trabajo')
     estatus = fields.Char(string='Estatus')
@@ -333,3 +333,44 @@ class GpsEventosFacturacion(models.Model):
     fecha_facturado = fields.Char(string='Fecha Facturado')
     id_usuario = fields.Char(string='Id Usuario')
     comentarios = fields.Char(string='Comentarios')
+
+class GpsEventosConfirmacion(models.Model):
+    _name = 'gps.eventos.confirmacion'
+    _description = 'gps.eventos.confirmacion'
+
+    _rec_name = 'numero_trabajo'
+
+    numero_trabajo = fields.Char(string='Numero Trabajo')
+    confirmado = fields.Char(string='Confirmado')
+    fecha = fields.Char(string='fecha')
+    consultoria_previa = fields.Char(string='Consultoria Previa')
+    comentarios = fields.Char(string='Comentarios')
+    confirma_programacion = fields.Char(string='Confirma Programación')
+    conflicto_intereses = fields.Char(string='Conflicto Intereses')
+
+class GpsEventosContrato(models.Model):
+    _name = 'gps.eventos.contrato'
+    _description = 'gps.eventos.contrato'
+
+    _rec_name = 'numero_trabajo'
+
+    numero_trabajo = fields.Char(string='Numero Trabajo')
+    confirmado = fields.Char(string='Confirmado')
+    fecha = fields.Char(string='fecha')
+    consultoria_previa = fields.Char(string='Consultoria Previa')
+    comentarios = fields.Char(string='Comentarios')
+    confirma_programacion = fields.Char(string='Confirma Programación')
+    conflicto_intereses = fields.Char(string='Conflicto Intereses')
+
+class GpsArchivosTracking(models.Model):
+    _name = 'gps.archivos.tracking'
+    _description = 'gps.archivos.tracking'
+
+    _rec_name = 'nombre'
+
+    id_archivo = fields.Char(string='Id Archivo')
+    numero_trabajo = fields.Char(string='Número Trabajo')
+    nombre = fields.Char(string='Nombre')
+    fecha_registro = fields.Char(string='Fecha Registro')
+    tipo_archivo = fields.Char(string='Tipo Archivo')
+    numero_archivo = fields.Char(string='Número Archivo')

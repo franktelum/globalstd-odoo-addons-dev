@@ -7,6 +7,9 @@
          <field name="model">gsos.complaint</field>
          <field name="arch" type="xml">
             <form string="Complaint">
+               <header>
+                  <field name="state" widget="statusbar" />
+               </header>
                <sheet>
                   <div class="oe_title">
                      <h1>
@@ -14,13 +17,15 @@
                      </h1>
                   </div>
                   <group col="4">
-                     <field name="user_id" />
-                     <field name="monitor" />
-                     <field name="supplier_id" />
-                     <field name="severity" />
-                  </group>
-                  <group col="4">
-                     <field name="reason" colspan="4" />
+                     <field name="user_id" groups="gsos.group_gsos_manager" colspan="2" />
+                     <newline/>
+                     <field name="monitor" colspan="2" />
+                     <newline/>
+                     <field name="supplier_id" colspan="2" />
+                     <newline/>
+                     <field name="severity" colspan="2" />
+                     <newline/>
+                     <field name="reason" />
                   </group>
                </sheet>
                <div class="oe_chatter">

@@ -159,7 +159,7 @@
       <act_window id="action_gps_eventos"
          name="Eventos"
          res_model="gps.eventos"
-         view_mode="tree,form">
+         view_mode="tree,form,calendar">
       </act_window>
 
       <act_window id="action_gps_no_conformidades"

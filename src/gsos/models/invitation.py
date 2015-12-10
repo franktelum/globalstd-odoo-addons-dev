@@ -78,3 +78,15 @@ class Invitation(models.Model):
         for record in self:
             record.state = 'sent'
         return
+
+    @api.multi
+    def action_accept_invitation(self):
+        for record in self:
+            record.state = 'accepted'
+        return
+
+    @api.multi
+    def action_reject_invitation(self):
+        for record in self:
+            record.state = 'rejected'
+        return

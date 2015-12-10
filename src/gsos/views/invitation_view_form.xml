@@ -10,6 +10,10 @@
                <header>
                   <button name="action_send_invitation" states="draft" type="object"
                      string="Send Invitation" class="btn-primary"/>
+                  <button name="action_accept_invitation" states="sent" type="object"
+                     string="Accept" class="btn-primary"/>
+                  <button name="action_reject_invitation" states="sent" type="object"
+                     string="Reject" class="btn-primary"/>
                   <field name="state" widget="statusbar" statusbar_visible="draft,sent,accepted" />
                </header>
                <sheet>
@@ -19,7 +23,7 @@
                      </h1>
                   </div>
                   <group>
-                     <field name="user_id" />
+                     <field name="user_id" groups="gsos.group_gsos_manager" />
                      <field name="email" />
                      <field name="notes" />
                   </group>

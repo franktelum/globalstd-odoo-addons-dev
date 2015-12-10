@@ -53,9 +53,9 @@
             <page name="internal_notes" position="after">
                <page name="gpsi_certification" string="Certification">
                   <group>
-                     <field name="gpsi_employees_count" />
-                     <field name="gpsi_logistics_coordinator_id" />
-                     <field name="gpsi_source_id" />
+                     <field name="gpsi_no_empleados" />
+                     <field name="gpsi_id_ref_prog" />
+                     <field name="gpsi_recommended" />
                   </group>
                </page>
             </page>

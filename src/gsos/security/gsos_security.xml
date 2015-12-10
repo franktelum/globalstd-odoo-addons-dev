@@ -16,7 +16,7 @@
       <record id="group_gsos_manager" model="res.groups">
          <field name="name">Manager</field>
          <field name="category_id" ref="gsos.module_category_gsos"/>
-         <field name="implied_ids" eval="[(4, ref('gsos.group_gsos_user'))]"/>
+         <!-- <field name="implied_ids" eval="[(4, ref('gsos.group_gsos_user'))]"/> -->
       </record>
 
    </data>

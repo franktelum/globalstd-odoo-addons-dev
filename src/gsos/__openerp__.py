@@ -8,11 +8,13 @@
     'depends': ['mail'],
     'data': [
         'security/gsos_security.xml',
+        'security/ir.model.access.csv',
         'data/audit_sequence.xml',
         'data/checklist_sequence.xml',
         'data/complaint_sequence.xml',
         'data/invitation_sequence.xml',
         'views/user_menu.xml',
+        'views/manager_menu.xml',
         'views/audit_view_tree.xml',
         'views/audit_view_form.xml',
         'views/audit_view_calendar.xml',

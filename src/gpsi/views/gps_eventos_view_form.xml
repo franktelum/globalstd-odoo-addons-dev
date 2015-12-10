@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+   <data>
+
+      <record id="gps_eventos_view_form" model="ir.ui.view">
+         <field name="name">gps.eventos.form</field>
+         <field name="model">gps.eventos</field>
+         <field name="arch" type="xml">
+            <form string="Events">
+               <sheet>
+                  <div class="oe_title">
+                     <h1>
+                        <field name="numero_trabajo" readonly="1"/>
+                     </h1>
+                  </div>
+                  <group>
+                     <group>
+                        <field name="id_cliente" readonly="1" />
+                        <field name="tipo_evento" />
+                        <field name="id_habilidad" readonly="1" />
+                        <field name="fecha_inicio" />
+                        <field name="fecha_termino" />
+                     </group>
+                     <group>
+                        <field name="id_revisor" />
+                        <field name="id_comite" />
+                        <field name="id_client_service" />
+                     </group>
+                  </group>
+                  <group>
+                     <field name="comentarios" />
+                  </group>
+                  <notebook>
+                     <page string="Audit">
+                        <group>
+                           <label string="This documents will be visible to the client." colspan="2" />
+                           <group string="Plan">
+                              <field name="archivo_plan_auditoria" string="Document" />
+                           </group>
+                           <group string="Report">
+                              <field name="archivo_reporte_auditoria" string="Document" />
+                           </group>
+                        </group>
+                     </page>
+                     <page string="Review">
+                        <group col="4">
+                           <label string="The event is in the administrative review, you can uploads documentation." colspan="4" />
+                           <field name="estado_revisor" colspan="2" />
+                           <newline/>
+                           <field name="nota_revisor" />
+                        </group>
+                     </page>
+                     <page string="Billing Information">
+                        <group>
+                           <group string="Plan">
+                              <label string="This document will be visible to the client." colspan="2" />
+                              <field name="archivo_plan_auditoria" />
+                           </group>
+                        </group>
+                     </page>
+                  </notebook>
+               </sheet>
+               <div class="oe_chatter">
+                  <field name="message_follower_ids" widget="mail_followers"/>
+                  <field name="message_ids" widget="mail_thread"/>
+               </div>
+            </form>
+         </field>
+      </record>
+
+   </data>
+</openerp>
