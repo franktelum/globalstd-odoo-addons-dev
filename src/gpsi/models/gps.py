@@ -94,7 +94,8 @@ class GpsContratos(models.Model):
     archivo_carta = fields.Char(string='Archivo Carta')
     archivo_cotizacion = fields.Char(string='Archivo Cotización')
     archivo_transferencia = fields.Char(string='Archivo Transferencia')
-    id_contrato = fields.Char(string='Id Contrato')
+    #Mapeado a external id
+    #id_contrato = fields.Char(string='Id Contrato')
     id_cliente = fields.Many2one(comodel_name='res.partner', string='Id Cliente')
     id_revisor = fields.Integer(string='Id Revisor')
     estado_revisor = fields.Selection(
@@ -167,23 +168,82 @@ class GpsEventos(models.Model):
     domicilio = fields.Char(string='Domicilio')
     fecha_inicio = fields.Date(string='Fecha Inicio')
     fecha_termino = fields.Date(string='Fecha Termino')
-    estado_evento = fields.Integer(string='Estado Evento')
-    tipo_evento = fields.Integer(string='Tipo Evento')
+    estado_evento = fields.Selection(
+        selection=[
+          (1, 'Agendado')
+          ,(2,'Confirmado')
+          ,(3,'Ejecutado')
+          ,(4,'Revision')
+          ,(5,'Comite')
+          ,(6,'Cerrado')
+        ],
+        string='Estado Evento',
+        help=None,
+        readonly=False,
+        required=False,
+        groups=[])
+    tipo_evento = fields.Selection(
+        selection=[
+          (0, 'Todos')
+          ,(1,'Ninguno')
+          ,(2,'PreAuditoria')
+          ,(3,'EtapaI')
+          ,(4,'EtapaII')
+          ,(5,'Seguimiento1')
+          ,(6,'CARS')
+          ,(7,'Recertificacion')
+          ,(8,'Seguimiento2')
+          ,(9,'Seguimiento3')
+          ,(10,'Seguimiento4')
+          ,(11,'Seguimiento5')
+          ,(12,'Transferencia')
+          ,(13,'Recertificacion')
+          ,(14,'Takeover')
+          ,(16,'AuditoriaEspecial')
+          ,(17,'RRPriortoExpiration')
+        ],
+        string='Tipo Evento',
+        help=None,
+        readonly=False,
+        required=False,
+        groups=[])
     introduccion = fields.Char(string='Introducción')
     pago = fields.Float(string='Pago')
     fecha_aviso = fields.Date(string='Fecha Aviso')
     comentarios = fields.Char(string='Comentarios')
     id_revisor = fields.Integer(string='Revisor')
-    estado_revisor = fields.Integer(string='Estado Revisor')
+    estado_revisor = fields.Selection(
+        selection=[
+          (0, 'Ninguno')
+          ,(1,'Aprovado')
+          ,(2,'Hold')
+          ,(3,'Revision')
+        ],
+        string='Estado Revisor',
+        help=None,
+        readonly=False,
+        required=False,
+        groups=[])
     nota_revisor = fields.Char(string='Nota Revisor')
     id_comite = fields.Integer(string='Id Comite')
-    estado_comite = fields.Integer(string='Estado Comite')
+    estado_comite = fields.Selection(
+        selection=[
+          (0, 'Ninguno')
+          ,(1,'Aprovado')
+          ,(2,'Hold')
+          ,(3,'Revision')
+        ],
+        string='Estado Comite',
+        help=None,
+        readonly=False,
+        required=False,
+        groups=[])
     nota_comite = fields.Char(string='Nota Comite')
     id_client_service = fields.Integer(string='Id Client Service')
     no_seguimiento_trans = fields.Integer(string='No Seguimiento Trans')
-    id_contrato = fields.Char(string='Id Contrato')
+    id_contrato = fields.Many2one(comodel_name='gps.contratos', string='Id Contrato')
     id_cliente = fields.Many2one(comodel_name='res.partner', string='Id Cliente')
-    estado_republica = fields.Integer(string='Estado Republica')
+    estado_republica = fields.Many2one(comodel_name='res.country.state', string='Estado Republica')
     discapacidad = fields.Boolean(string='¿Discapacidad?')
     es_conferencia = fields.Boolean(string='¿Es Conferencia?')
     archivo_plan_auditoria = fields.Char(string='Archivo Plan Auditoría')
@@ -192,7 +252,17 @@ class GpsEventos(models.Model):
     id_oficina = fields.Char(string='Id Oficina')
     ciudad = fields.Char(string='Ciudad')
     nota_auditor = fields.Char(string='Nota Auditor')
-    estatus = fields.Integer(string='Estaus')
+    estatus = fields.Selection(
+        selection=[
+          (0, 'Created')
+          ,(1,'Rejected')
+          ,(2,'Approved')
+        ],
+        string='Estatus',
+        help=None,
+        readonly=False,
+        required=False,
+        groups=[])
     fecha_envio_fssc = fields.Date(string='Fecha Envio FSSC')
 
 class GpsFuente(models.Model):
@@ -229,8 +299,8 @@ class GpsNoConformidades(models.Model):
     name = fields.Char(related='id_no_conformidad', string='Name')
 
     id_no_conformidad = fields.Char(string='Id NoConformidad')
-    id_cliente = fields.Char(string='Id Cliente')
-    numero_trabajo = fields.Char(string='Numero Trabajo')
+    id_cliente = fields.Many2one(comodel_name='res.partner', string='Id Cliente')
+    numero_trabajo = fields.Many2one(comodel_name='gps.eventos', string='Numero Trabajo')
     sentencia = fields.Char(string='Sentencia')
     sentencia_archivo = fields.Char(string='Sentencia Archivo')
     tipo = fields.Char(string='Tipo')
