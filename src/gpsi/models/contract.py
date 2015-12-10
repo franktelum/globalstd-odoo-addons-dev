@@ -5,7 +5,7 @@ from openerp import models, fields, api
 
 _logger = logging.getLogger(__name__)
 
-class ContractOrderLine(models.Model):
+class GpsiContractOrderLine(models.Model):
     _name = 'gpsi.contract.order.line'
     _description = 'Contract Order Line'
     _inherit = ['gpsi.order.line']
@@ -19,10 +19,10 @@ class ContractOrderLine(models.Model):
         context=None,
         ondelete=None)
 
-class Contract(models.Model):
+class GpsiContract(models.Model):
     _name = 'gpsi.contract'
     _description = 'Contract'
-    _inherit = 'mail.thread'
+    _inherit = ['mail.thread', 'gps.contratos']
 
     name = fields.Char(string='Code',
         default='New',
