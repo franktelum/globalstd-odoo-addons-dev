@@ -51,7 +51,7 @@
          view_mode="kanban,tree,form">
       </act_window>
 
-      <act_window id="action_gsos_user_invitations"
+      <act_window id="action_gsos_user_clients_invitations"
          name="Invitations"
          res_model="gsos.invitation"
          view_mode="tree,form">
@@ -65,7 +65,7 @@
       <menuitem id="menu_gsos_clients_process_invitations"
          name="Invitations"
          parent="menu_gsos_clients"
-         action="action_gsos_user_invitations"
+         action="action_gsos_user_clients_invitations"
          groups="group_gsos_user"
          sequence="1">
       </menuitem>
@@ -91,10 +91,10 @@
          view_mode="kanban,tree,form">
       </act_window>
 
-      <act_window id="action_gsos_user_invitations"
+      <act_window id="action_gsos_user_suppliers_invitations"
          name="Invitations"
          res_model="gsos.invitation"
-         domain="[('gsos_user_ids', 'in', [uid])]"
+         domain="[('user_id', '=', uid)]"
          context="{'default_user_id': uid}"
          view_mode="tree,form">
       </act_window>
@@ -107,7 +107,7 @@
       <menuitem id="menu_gsos_suppliers_process_invitations"
          name="Invitations"
          parent="menu_gsos_suppliers"
-         action="action_gsos_user_invitations"
+         action="action_gsos_user_suppliers_invitations"
          groups="group_gsos_user"
          sequence="1">
       </menuitem>
