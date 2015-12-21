@@ -7,11 +7,11 @@
     'depends': ['mail'],
     'data': [
         'views/gpsi_menu.xml',
-        'views/gps_contratos_view_treexml',
+        'views/gps_contratos_view_tree.xml',
         'views/gps_contratos_view_form.xml',
         'views/gps_eventos_view_tree.xml',
-        'views/gps_eventos_view_form.xml',
-        'views/gps_eventos_view_calendar.xml',
+        #'views/gps_eventos_view_form.xml',
+        #'views/gps_eventos_view_calendar.xml',
         'views/audit_event_view_form.xml',
         'views/audit_event_view_tree.xml',
         'views/audit_event_view_calendar.xml',
@@ -24,7 +24,7 @@
         'views/quotation_view_form.xml',
         'views/partner_view_form.xml',
         'views/product_view_form.xml',
-        'views/gps_views.xml',
+        #'views/gps_views.xml',
         'data/contract_sequence.xml',
         'data/quotation_sequence.xml',
         'data/audit_event_sequence.xml'
