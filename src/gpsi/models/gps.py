@@ -93,12 +93,12 @@ class GpsContratos(models.Model):
     archivo_contrato = fields.Char(string='Archivo Contrato')
     archivo_cuestionario = fields.Char(string='Archivo Cuestionario')
     archivo_carta = fields.Char(string='Archivo Carta')
-    archivo_cotizacion = fields.Char(string='Archivo Cotización')
+    archivo_cotizacion = fields.Char(string='Archivo Cotizacion')
     archivo_transferencia = fields.Char(string='Archivo Transferencia')
     #Mapeado a external id
     #id_contrato = fields.Char(string='Id Contrato')
     id_cliente = fields.Many2one(comodel_name='res.partner', string='Id Cliente')
-    id_revisor = fields.Many2one(comodel_name='res.users', string='Id Revisor')
+    id_revisor = fields.Integer(string='Id Revisor')
     estado_revisor = fields.Selection(
         selection=[
           (0, 'Ninguno')
@@ -119,10 +119,10 @@ class GpsContratos(models.Model):
     ciclo_contrato = fields.Integer(string='Ciclo Contrato')
     moneda_tipo = fields.Integer(string='Moneda')
     moneda_tipo_cambio = fields.Float(string='Tipo de Cambio')
-    recertificacion = fields.Boolean(string='¿Recertificación?')
+    recertificacion = fields.Boolean(string='¿Recertificacion?')
     finalizado = fields.Boolean(string='¿Finalizado?')
     archivo_certificado = fields.Char(string='Archivo Certificado')
-    informacion_avance = fields.Text(string='Información Avance')
+    informacion_avance = fields.Text(string='Informacion Avance')
     fechainicio = fields.Date(string='Fecha Inicio')
     fechafin = fields.Date(string='Fecha Fin')
     tipocertificacion = fields.Selection(
@@ -131,7 +131,7 @@ class GpsContratos(models.Model):
           ,(2,'Recertification')
           ,(3,'Takeover')
         ],
-        string='Tipo Certificación',
+        string='Tipo Certificacion',
         help=None,
         readonly=False,
         required=False,
@@ -153,10 +153,10 @@ class GpsContratos(models.Model):
         groups=[])
     haccp = fields.Integer(string='HACCP')
     aplica_viaticos = fields.Char(string='Aplica Viaticos')
-    id_md5_qms = fields.Many2one(comodel_name='gps.md5qms', string='Id MD5QMS')
+    id_md5_qms = fields.Char(string='MD5QMS')
     observaciones_viaticos = fields.Char(string='Observaciones Viaticos')
     report_time = fields.Float(string='Report Time')
-    archivo_rev_auditor = fields.Char(string='Archivo Rev. Auditor')
+    archivo_rev_auditor = fields.Char(string='Archivo Rev Auditor')
 
 class GpsEventos(models.Model):
     _name = 'gps.eventos'
@@ -212,7 +212,7 @@ class GpsEventos(models.Model):
     pago = fields.Float(string='Pago')
     fecha_aviso = fields.Date(string='Fecha Aviso')
     comentarios = fields.Text(string='Comentarios')
-    id_revisor = fields.Many2one(comodel_name='res.users', string='Id Revisor')
+    id_revisor = fields.Char(string='Id Revisor')
     estado_revisor = fields.Selection(
         selection=[
           (0, 'Ninguno')
@@ -226,7 +226,7 @@ class GpsEventos(models.Model):
         required=False,
         groups=[])
     nota_revisor = fields.Text(string='Nota Revisor')
-    id_comite = fields.Many2one(comodel_name='res.users', string='Id Comite')
+    id_comite = fields.Char(string='Id Comite')
     estado_comite = fields.Selection(
         selection=[
           (0, 'Ninguno')
@@ -240,7 +240,7 @@ class GpsEventos(models.Model):
         required=False,
         groups=[])
     nota_comite = fields.Char(string='Nota Comite')
-    id_client_service = fields.Many2one(comodel_name='res.users', string='Id Cliente Service')
+    id_client_service = fields.Char(string='Id Cliente Service')
     no_seguimiento_trans = fields.Integer(string='No Seguimiento Trans')
     id_contrato = fields.Many2one(comodel_name='gps.contratos', string='Id Contrato')
     id_cliente = fields.Many2one(comodel_name='res.partner', string='Id Cliente')
